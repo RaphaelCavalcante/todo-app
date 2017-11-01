@@ -6,7 +6,6 @@ import { Todo } from './components/todo';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
 })
 export class AppComponent {
   title = 'app';
@@ -15,13 +14,13 @@ export class AppComponent {
   onAddTodo(todo: Todo) {
     this.todoDataService.post(todo);
   }
-  removeTodo(todo) {
+  onRemoveTodo(todo) {
     this.todoDataService.delete(todo.id);
+  }
+  onToogleTodoComplete(todo) {
+    this.todoDataService.toggleComplete(todo);
   }
   get todos() {
     return this.todoDataService.getAll();
-  }
-  toogleTodoComplete(todo) {
-    this.todoDataService.toggleComplete(todo);
   }
 }

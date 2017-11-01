@@ -4,19 +4,10 @@
     <!-- header component --> 
     <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
     
-    <section class="main" *ngIf="todos.length > 0">
-      <ul class="todo-list">
-        <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-          <app-todo-list-item 
-            [todo] = "todo"
-            (toggleComplete) = "onToggleComponete($event)"
-            (remove)="onRemoveTodo($event)"></app-todo-list-item>
-        </li>
-      </ul>
-    </section>
-    <footer class="footer" *ngIf="todos.length > 0">
-      <span class="todo-count">
-        <strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-    </footer>
+    <!-- todo-list component -->
+    <app-todo-list></todo-list-component>
+
+    <!-- footer component -->
+    <todo-list-footer [todos]="todos"></todo-list-footer>
   </section>
 </div>
